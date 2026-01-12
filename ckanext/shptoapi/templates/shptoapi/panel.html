@@ -1,0 +1,35 @@
+{% extends "page.html" %}
+
+{% block subtitle %}Vector panel{% endblock %}
+
+{% block primary %}
+<div class="container">
+  <h1>Vector panel for resource {{ resource.name or resource.id }}</h1>
+  <p>ID: {{ resource.id }}</p>
+  <p>Flag: <code>{{ flag_name }}</code></p>
+  <p>Status: {% if enabled %}<strong>Enabled</strong>{% else %}<strong>Disabled</strong>{% endif %}</p>
+
+  <form method="post" style="display:inline;">
+    <input type="hidden" name="action" value="enable">
+    <button class="btn btn-primary" type="submit">Enable and load</button>
+  </form>
+  <form method="post" style="display:inline; margin-left:8px;">
+    <input type="hidden" name="action" value="disable">
+    <button class="btn btn-secondary" type="submit">Disable and drop table</button>
+  </form>
+
+  <hr/>
+  {% if metadata %}
+    <h3>Loaded metadata</h3>
+    <ul>
+      <li>Table: {{ metadata.vector_table }}</li>
+      <li>SRID: {{ metadata.srid }}</li>
+      <li>Geom type: {{ metadata.geom_type }}</li>
+      <li>BBox: {{ metadata.bbox }}</li>
+      <li>Features: {{ metadata.feature_count }}</li>
+    </ul>
+  {% else %}
+    <p>No table is loaded or metadata could not be read.</p>
+  {% endif %}
+</div>
+{% endblock %}

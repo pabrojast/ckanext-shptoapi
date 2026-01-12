@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+recursive-include ckanext *.py
+recursive-include ckanext *.html
