@@ -21,7 +21,7 @@ REQUIRED_EXTENSIONS = {".shp", ".shx", ".dbf", ".prj"}
 
 
 def process_resource(resource, context: Dict, config: Dict) -> Optional[Dict]:
-"""Process an uploaded resource and load its shapefile into PostGIS."""
+    """Process an uploaded resource and load its shapefile into PostGIS."""
     resource_dict = _resource_dict(resource, context)
     if not _should_process(resource_dict, config):
         return None
