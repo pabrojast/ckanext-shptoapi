@@ -25,7 +25,7 @@ setup(
         "ckan>=2.9",
         "SQLAlchemy>=1.3,<2.0",
         "psycopg2-binary",
-        "GDAL>=3.0",
+        "GDAL>=3.10,<3.11",
         "pyproj",
     ],
 )
