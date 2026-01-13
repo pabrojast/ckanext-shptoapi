@@ -179,7 +179,7 @@ def _find_shapefile(root_dir: str) -> Optional[Dict[str, str]]:
 def _detect_srid(prj_path: str) -> int:
     with open(prj_path, "r", encoding="utf-8", errors="ignore") as prj_file:
         content = prj_file.read()
-    match = re.search(r"AUTHORITY\\[\"EPSG\",\"(\\d+)\"\\]", content, re.IGNORECASE)
+    match = re.search(r'AUTHORITY\["EPSG","(\d+)"\]', content, re.IGNORECASE)
     if match:
         return int(match.group(1))
     try:

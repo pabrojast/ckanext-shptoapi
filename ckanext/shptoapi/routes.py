@@ -201,8 +201,8 @@ def _parse_bbox_param(raw: Optional[str]) -> Optional[list]:
         raise ShpToApiError("bbox must use minx,miny,maxx,maxy")
     try:
         return [float(p) for p in parts]
-    except ValueError:
-        raise ShpToApiError("bbox contains non numeric values")
+    except ValueError as exc:
+        raise ShpToApiError("bbox contains non numeric values") from exc
 
 
 def _read_int(raw: Optional[str], default: int) -> int:
