@@ -227,7 +227,7 @@ def _build_table_name(resource_id: str, prefix: str) -> str:
 def _quote(value: Optional[str]) -> str:
     if value is None:
         return ""
-    escaped = str(value).replace("'", "\\'")
+    escaped = str(value).replace("'", "''")
     return f"'{escaped}'"
 
 

@@ -10,10 +10,12 @@
   <p>Status: {% if enabled %}<strong>Enabled</strong>{% else %}<strong>Disabled</strong>{% endif %}</p>
 
   <form method="post" style="display:inline;">
+    {{ h.csrf_input() if h.csrf_input else '' }}
     <input type="hidden" name="action" value="enable">
     <button class="btn btn-primary" type="submit">Enable and load</button>
   </form>
   <form method="post" style="display:inline; margin-left:8px;">
+    {{ h.csrf_input() if h.csrf_input else '' }}
     <input type="hidden" name="action" value="disable">
     <button class="btn btn-secondary" type="submit">Disable and drop table</button>
   </form>
